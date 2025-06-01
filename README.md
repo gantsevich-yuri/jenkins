@@ -27,7 +27,14 @@
 3. Создайте в jenkins Freestyle Project, подключите получившийся репозиторий к нему и произведите запуск тестов и сборку проекта ```go test .``` и  ```docker build .```.
 
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+```
+/usr/local/go/bin/go test .
+docker build . -t my-go-app:v$BUILD_NUMBER
+```
+
 ![task1](task1.png)
+
 ![task1-2](task1-2.png)
 ---
 
