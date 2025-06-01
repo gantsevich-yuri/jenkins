@@ -85,7 +85,9 @@ pipeline {
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
 ```
 /usr/local/go/bin/go test .
+
 CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o app .
+
 curl -u admin:P@ssw0rd \
   --upload-file app \
   http://127.0.0.1:8081/repository/my-repo/go/app
@@ -108,6 +110,18 @@ curl -u admin:P@ssw0rd \
 Подсказка: используйте переменную BUILD_NUMBER.
 
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+
+```
+/usr/local/go/bin/go test .
+
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o app:v$BUILD_NUMBER .
+
+curl -u admin:P@ssw0rd \
+  --upload-file app:v$BUILD_NUMBER \
+  http://127.0.0.1:8081/repository/my-repo/go/app:v$BUILD_NUMBER
+```
+
+![task4](task4.png)
 
 ## Дополнительные материалы для выполнения домашних заданий из блока "Введение в DevOps"
 
