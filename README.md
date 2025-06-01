@@ -83,6 +83,16 @@ pipeline {
 1. Загрузите файл в репозиторий с помощью jenkins.
 
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
+```
+/usr/local/go/bin/go test .
+CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o app .
+curl -u admin:P@ssw0rd \
+  --upload-file app \
+  http://127.0.0.1:8081/repository/my-repo/go/app
+```
+![task3](task3.png)
+
+![task3-2](task3-2.png)
 
 ---
 ## Дополнительные задания* (со звёздочкой)
