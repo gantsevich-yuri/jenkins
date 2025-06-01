@@ -47,6 +47,30 @@ docker build . -t my-go-app:v$BUILD_NUMBER
 
 В качестве ответа пришлите скриншоты с настройками проекта и результатами выполнения сборки.
 
+
+```
+pipeline {
+ agent any
+ stages {
+  stage('Git') {
+   steps {git branch: 'main', url:'https://github.com/gantsevich-yuri/jenkins.git'}
+  }
+  stage('Test') {
+   steps {
+    sh '/usr/local/go/bin/go test .'
+   }
+  }
+  stage('Build') {
+   steps {
+    sh 'docker build . -t my-go-app:v$BUILD_NUMBER'
+   }
+  }
+ }
+}
+```
+
+![task2](task2.png)
+
 ---
 
 ### Задание 3
